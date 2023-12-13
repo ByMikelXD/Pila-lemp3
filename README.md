@@ -92,8 +92,8 @@ sudo apt install -y php-mysql
 - Después, accedemos al archivo /etc/exports y añadimos las siguientes líneas para permitir hacer un mount de las carpetas.
 
 ```
-/var/nfs/compartir     X.X.X.X(rw,sync,no_root_squash,no_subtree_check)
-/var/nfs/compartir     X.X.X.X(rw,sync,no_root_squash,no_subtree_check)
+/var/nfs/compartir/wordpress     X.X.X.X(rw,sync,no_root_squash,no_subtree_check)
+/var/nfs/compartir/wordpress     X.X.X.X(rw,sync,no_root_squash,no_subtree_check)
 
 ```
 
