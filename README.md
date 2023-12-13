@@ -1,4 +1,4 @@
-# Pila-LEMP 3/4 Capas
+# Pila-LEMP 3/4 Capas Miguel Cordero González
 
 # Indice
 
@@ -8,7 +8,7 @@
     * [Balanceador.](#Servidor-Balanceador)
     * [Servidor NFS.](#NFSserver)
     * [Servidores WEB.](#Servidores-WEB1-Y-WEB2)
-    * [Servidor BBDD.](#GGBBserver)
+    * [Servidor BBDD.](#DDBBB)
 
 
 
@@ -167,7 +167,7 @@ sudo ln -s /etc/nginx/sites-available/wordpress /etc/nginx/sites-enabled.
 ```
  ![image](Fotos/18.png)
 
-# GGBBserver
+# DDBB
 
 - Este será el aprovisionamiento de servidor de datos.
 
