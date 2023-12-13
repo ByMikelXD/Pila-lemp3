@@ -2,9 +2,8 @@
 
 # Indice
 
-1. [Indice.](#Indice)
-2. [Introducción.](#introducción)
-3. [Creacion de servidores.](PASOS-A-SEGUIR-PARA-CREAR-LOS-SERVIDORES) 
+1. [Introducción.](#introducción)
+2. [Creacion de servidores.](PASOS-A-SEGUIR-PARA-CREAR-LOS-SERVIDORES) 
     * [Balanceador.](#Servidor-Balanceador)
     * [Servidor NFS.](#NFSserver)
     * [Servidores WEB.](#Servidores-WEB1-Y-WEB2)
