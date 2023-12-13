@@ -71,31 +71,40 @@ server {
 # NFSserver
 Para este servidor, llevaremos a cabo el siguiente aprovisionamiento para reducir el trabajo:
 
- ![image](Fotos/3.png)
+```
+sudo apt update
+sudo apt install -y nfs-kernel-server
+sudo apt install -y nfs-common
+sudo apt install -y php-mysql
+
+```
 
 Una vez tengamos el servidor activo, crearemos el siguiente directorio.
 
- ![image](Fotos/4.png)
+ ![image](Fotos/3.png)
 
 Después, accederemos al archivo /etc/exports y añadiremos las siguientes dos líneas para permitir compartir la carpeta creada anteriormente.
 ```
 /var/nfs/compartir     X.X.X.X(rw,sync,no_root_squash,no_subtree_check)
 /var/nfs/compartir     X.X.X.X(rw,sync,no_root_squash,no_subtree_check)
+
 ```
+
+ ![image](Fotos/4.png)
 
  ![image](Fotos/5.png)
 
- ![image](Fotos/6.png)
-
 Una vez editado el archivo, nos moveremos a /var/nfs/compartir y descargaremos el siguiente archivo de WordPress.
 
- ![image](Fotos/7.png)
+ ```
+sudo wget https://wordpress.org/latest.tar.gz
+sudo tar -xzvf latest.tar.gz
 
- ![image](Fotos/8.png)
+```
 
 Ahora habilitaremos los puertos de los servidores para evitar problemas con NFS.
 
- ![image](Fotos/9.png)
+ ![image](Fotos/8.png)
 
 Seguidamente, en la carpeta en la que descargamos WordPress, editaremos el archivo **wp-config-sample** con los siguientes datos que utilizaremos para acceder a la base de datos.
 
@@ -111,7 +120,14 @@ Seguidamente, en la carpeta en la que descargamos WordPress, editaremos el archi
 
 Para los servidores web, utilizaremos el siguiente aprovisionamiento:
 
- ![image](Fotos/13.png)
+```
+sudo apt-get update
+sudo apt-get install -y nginx
+sudo apt-get install -y nfs-common
+sudo apt-get install -y php-fpm
+sudo apt-get install -y php-msyql
+
+```
 
 
 Para montar el directorio anteriormente creado en el NFS, utilizaremos el siguiente comando:
@@ -119,54 +135,51 @@ Para montar el directorio anteriormente creado en el NFS, utilizaremos el siguie
 ```
 sudo mount X.X.X.X:/var/nfs/compartida/wordpress /var/nfs/compartida/wordpress
 ```
+ ![image](Fotos/13.png)
 
  ![image](Fotos/14.png)
 
- ![image](Fotos/15.png)
  
 Tras realizar el paso anterior, iremos al directorio **/etc/nginx/sites-available** y crearemos una copia del archivo "default".
 
- ![image](Fotos/16.png)
+![image](Fotos/15.png)
 
 La cual ahora se editará modificando las siguientes líneas.
 
+![image](Fotos/16.png)
+
  ![image](Fotos/17.png)
 
- ![image](Fotos/18.png)
-
- ![image](Fotos/19.png)
 
 Una vez editado el archivo, crearemos un enlace simbólico a otro directorio con el siguiente comando:
 ```
 sudo ln -s /etc/nginx/sites-available/wordpress /etc/nginx/sites-enabled.
 ```
+ ![image](Fotos/18.png)
 
- ![image](Fotos/20.png)
-
------Nota-----
-Si luego queremos conectarnos de forma remota al servidor de datos, debemos instalar mysql-client. Para esto, utilizaremos:
-```
-sudo apt install mysql-client
-sudo mysql -h X.X.X.X -u mi_usuario -p
-```
+ ![image](Fotos/19.png)
 
 # GGBBserver
 
 Este será el aprovisionamiento que se le dará al servidor de datos.
 
-
- ![image](Fotos/21.png)
+```
+sudo apt-get update
+sudo apt-get install -y mariadb-server
+```
 
 Una vez arranquemos la máquina, iremos al directorio **/etc/mysql** y editaremos el archivo "50-server", cambiando en la línea "bind-address" la dirección IP que está por defecto por la de nuestro servidor de datos.
 
 Una vez realizado ese cambio, crearemos la base de datos, el usuario y se le darán los permisos correspondientes para el posterior acceso.
 
- ![image](Fotos/22.png)
+  ![image](Fotos/20.png)
+ 
+ ![image](Fotos/21.png)
 
 
 
 Para la comprobación, iremos a nuestro navegador en modo incógnito y escribiremos "localhost:9000" en mi caso, y deberá mostrarse una página como la siguiente.
 
- ![image](Fotos/23.png)
+ ![image](Fotos/22.png)
 
 Con esto, WordPress estaría instalado y solo faltaría continuar con su instalación desde la página web.
