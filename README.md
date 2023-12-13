@@ -1,42 +1,39 @@
-# Pila-LEMP 3/4 Capas Miguel Cordero González
+# Pila LEMP de 3/4 Capas - Miguel Cordero González
 
-# Indice
+# Índice
 
-1. [Introducción.](#introducción)
-2. [Creacion de servidores.](PASOS-A-SEGUIR-PARA-CREAR-LOS-SERVIDORES) 
-    * [Balanceador.](#Servidor-Balanceador)
-    * [Servidor NFS.](#NFSserver)
-    * [Servidores WEB.](#Servidores-WEB1-Y-WEB2)
-    * [Servidor BBDD.](#DDBBB)
+1. [Introducción](#introducción)
+2. [Creación de servidores](#pasos-a-seguir-para-crear-los-servidores)
+    * [Balanceador](#servidor-balanceador)
+    * [Servidor NFS](#nfs-server)
+    * [Servidores WEB](#servidores-web1-y-web2)
+    * [Servidor BBDD](#ddbb)
 
+# Introducción
 
-
-# Introduccion
-
-En esta proyecto, se implementa una pila LEMP y la instalcion de Worpress
+En este proyecto, se implementa una pila LEMP y la instalación de WordPress.
 
 Capa 1: Balanceador.
 
-Capa 2: WEB1 Y WEB2.
+Capa 2: WEB1 y WEB2.
 
 Una máquina que aloja un servidor NFS y PHP-FPM.
 
-Capa 3: Datos. 
+Capa 3: Servidor Base de Datos.
 
 Se emplea una base de datos MariaDB.
 
-La web 1 y web 2 no estan accesible desde una red publica. 
+La web 1 y web 2 no están accesibles desde una red pública.
 
-Los servidores web utilizarán una carpeta compartida proporcionada por NFS. 
-
+Los servidores web utilizarán una carpeta compartida proporcionada por NFS.
 
 # PASOS A SEGUIR PARA CREAR LOS SERVIDORES.
 
-# Servidor Balanceador
+## Servidor Balanceador
 
 Para la configuración del balanceador.
 
-- utilizaremos aprovisionamiento que permitirá ahorrar bastante tiempo en la configuracion. Este proceso incluirá Nginx, su arranque y la eliminación de archivos que no son necesarios.
+- Utilizaremos aprovisionamiento que permitirá ahorrar bastante tiempo en la configuración. Este proceso incluirá Nginx, su arranque y la eliminación de archivos que no son necesarios.
 
  ```
 sudo apt update
